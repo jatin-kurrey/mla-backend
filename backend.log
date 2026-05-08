@@ -1,0 +1,641 @@
+
+2026/05/06 16:57:17 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[1045.654ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:18 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[814.054ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:18 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[520.449ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'users'[0m
+
+2026/05/06 16:57:19 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.464ms] [33m[rows:-][35m SELECT * FROM "users" LIMIT 5[0m
+
+2026/05/06 16:57:19 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[513.074ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:20 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[514.606ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users'[0m
+
+2026/05/06 16:57:20 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[509.196ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'users'[0m
+
+2026/05/06 16:57:21 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[512.294ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:21 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[346.403ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'username') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:21 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.691ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:21 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.777ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:22 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.959ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:22 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[460.120ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:22 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[307.592ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:23 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[257.979ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'heros'[0m
+
+2026/05/06 16:57:23 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[457.574ms] [33m[rows:-][35m SELECT * FROM "heros" LIMIT 5[0m
+
+2026/05/06 16:57:23 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[306.805ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'heros' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:24 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[260.371ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'heros'[0m
+
+2026/05/06 16:57:24 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.308ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'heros'[0m
+
+2026/05/06 16:57:24 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.848ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'heros' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:24 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.461ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND column_name = 'slogan1') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'heros' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:25 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.053ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND column_name = 'slogan2') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'heros' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:25 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.503ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND column_name = 'desc') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'heros' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:25 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[257.844ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND column_name = 'video_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'heros' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:26 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.557ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'heros' AND column_name = 'mla_image') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'heros' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:26 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.989ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:26 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.742ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:26 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.907ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'news'[0m
+
+2026/05/06 16:57:27 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.442ms] [33m[rows:-][35m SELECT * FROM "news" LIMIT 5[0m
+
+2026/05/06 16:57:27 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.628ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'news' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:27 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.025ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'news'[0m
+
+2026/05/06 16:57:27 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.430ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'news'[0m
+
+2026/05/06 16:57:28 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.639ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'news' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:28 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[267.738ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'news' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:28 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[252.731ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND column_name = 'image') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'news' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:28 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[272.736ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND column_name = 'date') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'news' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:29 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.252ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND column_name = 'content') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'news' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:29 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.672ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'news' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'news' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:29 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[318.734ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stats' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:29 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.858ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:30 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[360.401ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'stats'[0m
+
+2026/05/06 16:57:30 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[305.742ms] [33m[rows:-][35m SELECT * FROM "stats" LIMIT 5[0m
+
+2026/05/06 16:57:31 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[412.448ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'stats' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:31 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[257.882ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'stats'[0m
+
+2026/05/06 16:57:31 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.821ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'stats'[0m
+
+2026/05/06 16:57:31 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.719ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stats' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:32 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.995ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stats' AND column_name = 'icon') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:32 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.675ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stats' AND column_name = 'label') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:32 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.123ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stats' AND column_name = 'value') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:32 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.430ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'stats' AND column_name = 'sub') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'stats' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:33 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.849ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'schemes' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:33 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.488ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:33 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[256.430ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'schemes'[0m
+
+2026/05/06 16:57:33 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.164ms] [33m[rows:-][35m SELECT * FROM "schemes" LIMIT 5[0m
+
+2026/05/06 16:57:34 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[259.127ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'schemes' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:34 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.541ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'schemes'[0m
+
+2026/05/06 16:57:34 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[261.604ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'schemes'[0m
+
+2026/05/06 16:57:34 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.440ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'schemes' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'schemes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:35 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[272.385ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'schemes' AND column_name = 'icon') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'schemes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:35 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.469ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'schemes' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'schemes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:36 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[794.776ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'schemes' AND column_name = 'color') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'schemes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:36 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[259.595ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'schemes' AND column_name = 'desc') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'schemes' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:37 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[788.082ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'galleries' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:37 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.026ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:38 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[795.313ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'galleries'[0m
+
+2026/05/06 16:57:38 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.807ms] [33m[rows:-][35m SELECT * FROM "galleries" LIMIT 5[0m
+
+2026/05/06 16:57:38 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[268.710ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'galleries' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:39 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.084ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'galleries'[0m
+
+2026/05/06 16:57:39 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[261.095ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'galleries'[0m
+
+2026/05/06 16:57:39 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.393ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'galleries' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'galleries' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:39 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.471ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'galleries' AND column_name = 'image_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'galleries' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:40 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.635ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'galleries' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'galleries' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:40 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.289ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:40 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.360ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:40 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.336ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads'[0m
+
+2026/05/06 16:57:41 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[259.434ms] [33m[rows:-][35m SELECT * FROM "janasamvads" LIMIT 5[0m
+
+2026/05/06 16:57:41 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[263.779ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'janasamvads' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:41 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.538ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'janasamvads'[0m
+
+2026/05/06 16:57:41 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[266.981ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'janasamvads'[0m
+
+2026/05/06 16:57:42 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.472ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:42 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.121ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:42 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.361ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'mobile') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:43 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[266.580ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:43 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.965ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'type') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:43 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.303ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'ward') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:43 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.689ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'message') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:44 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.027ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:44 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[257.152ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'janasamvads' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'janasamvads' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:44 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[263.571ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:44 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[252.946ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:45 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[272.733ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'settings'[0m
+
+2026/05/06 16:57:45 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.223ms] [33m[rows:-][35m SELECT * FROM "settings" LIMIT 5[0m
+
+2026/05/06 16:57:45 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[264.432ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'settings' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:45 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[257.522ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'settings'[0m
+
+2026/05/06 16:57:46 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.927ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'settings'[0m
+
+2026/05/06 16:57:46 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.715ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:46 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[268.221ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_topbar') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:46 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.773ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_navbar') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:47 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.813ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_hero') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:47 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.283ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_hero_slogan') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:47 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[267.767ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_hero_buttons') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:47 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.159ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_hero_mla') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:48 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.775ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_hero_services') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:48 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.000ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_stats') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:48 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[268.169ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_news') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:49 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.317ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_schemes') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:49 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.466ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_gallery') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:49 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.254ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_about') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:49 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.056ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_timeline') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:50 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.765ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_social') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:50 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[272.308ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'settings' AND column_name = 'show_footer') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'settings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:50 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.755ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:50 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[266.065ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:51 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.620ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'abouts'[0m
+
+2026/05/06 16:57:51 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.241ms] [33m[rows:-][35m SELECT * FROM "abouts" LIMIT 5[0m
+
+2026/05/06 16:57:51 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.455ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'abouts' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:51 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[267.892ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'abouts'[0m
+
+2026/05/06 16:57:52 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.896ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'abouts'[0m
+
+2026/05/06 16:57:52 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.303ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:52 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.031ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:53 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.916ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'subtitle') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:53 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.411ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:53 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.302ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'image') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:54 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[268.421ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'experience') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:54 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.530ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'point1') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:54 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[267.699ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'point2') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:54 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.366ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'point3') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:55 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.656ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'point4') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:55 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.427ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'birthplace') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:55 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.996ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'abouts' AND column_name = 'education') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'abouts' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:55 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.129ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'milestones' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:56 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.238ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:56 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.911ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'milestones'[0m
+
+2026/05/06 16:57:56 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[267.242ms] [33m[rows:-][35m SELECT * FROM "milestones" LIMIT 5[0m
+
+2026/05/06 16:57:56 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.444ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'milestones' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:57:57 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.402ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'milestones'[0m
+
+2026/05/06 16:57:57 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.162ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'milestones'[0m
+
+2026/05/06 16:57:57 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.534ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'milestones' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'milestones' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:57 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.866ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'milestones' AND column_name = 'year') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'milestones' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:58 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.834ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'milestones' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'milestones' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:58 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.746ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'milestones' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'milestones' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:58 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.348ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'milestones' AND column_name = 'image') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'milestones' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:57:58 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.129ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'values' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:57:59 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[270.720ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:57:59 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[256.723ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'values'[0m
+
+2026/05/06 16:57:59 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[264.329ms] [33m[rows:-][35m SELECT * FROM "values" LIMIT 5[0m
+
+2026/05/06 16:58:00 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.894ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'values' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:58:00 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[793.402ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'values'[0m
+
+2026/05/06 16:58:01 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.982ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'values'[0m
+
+2026/05/06 16:58:01 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[793.699ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'values' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'values' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:02 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[256.490ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'values' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'values' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:03 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[1316.313ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'values' AND column_name = 'text') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'values' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:03 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[521.725ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'values' AND column_name = 'icon') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'values' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:04 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.947ms] [33m[rows:1][35m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND table_type = 'BASE TABLE'[0m
+
+2026/05/06 16:58:04 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.706ms] [33m[rows:1][35m SELECT CURRENT_DATABASE()[0m
+
+2026/05/06 16:58:04 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.292ms] [33m[rows:-][35m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'neondb' AND table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages'[0m
+
+2026/05/06 16:58:05 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[1045.069ms] [33m[rows:-][35m SELECT * FROM "about_pages" LIMIT 5[0m
+
+2026/05/06 16:58:06 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[1051.627ms] [33m[rows:-][35m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'about_pages' AND constraint_type = 'UNIQUE'[0m
+
+2026/05/06 16:58:07 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[524.610ms] [33m[rows:-][35m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'neondb' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'about_pages'[0m
+
+2026/05/06 16:58:07 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[265.705ms] [33m[rows:-][35m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'about_pages'[0m
+
+2026/05/06 16:58:07 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[255.566ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:08 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[268.191ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'page_title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:08 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.865ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'page_subtitle') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:08 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[271.650ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'intro_text1') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:08 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.896ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'intro_text2') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:09 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.428ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'birthplace') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:09 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.252ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'education') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:09 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.933ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'party') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:10 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[254.063ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'current_pos') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:10 [32m/Users/jatin/Documents/mla2/backend/models/models.go:131 [33mSLOW SQL >= 200ms
+[0m[31;1m[272.707ms] [33m[rows:0][35m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'about_pages' AND column_name = 'main_image') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'about_pages' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))[0m
+
+2026/05/06 16:58:10 [32m/Users/jatin/Documents/mla2/backend/main.go:33 [33mSLOW SQL >= 200ms
+[0m[31;1m[520.563ms] [33m[rows:1][35m SELECT count(*) FROM "users"[0m
+
+2026/05/06 16:58:11 [32m/Users/jatin/Documents/mla2/backend/main.go:43 [33mSLOW SQL >= 200ms
+[0m[31;1m[525.283ms] [33m[rows:1][35m SELECT count(*) FROM "settings"[0m
+
+2026/05/06 16:58:11 [32m/Users/jatin/Documents/mla2/backend/main.go:65 [33mSLOW SQL >= 200ms
+[0m[31;1m[522.385ms] [33m[rows:1][35m SELECT count(*) FROM "abouts"[0m
+
+2026/05/06 16:58:12 [32m/Users/jatin/Documents/mla2/backend/main.go:85 [33mSLOW SQL >= 200ms
+[0m[31;1m[523.230ms] [33m[rows:1][35m SELECT * FROM "about_pages" ORDER BY "about_pages"."id" LIMIT 1[0m
+
+2026/05/06 16:58:12 [32m/Users/jatin/Documents/mla2/backend/main.go:106 [33mSLOW SQL >= 200ms
+[0m[31;1m[524.448ms] [33m[rows:1][35m SELECT count(*) FROM "milestones"[0m
+
+2026/05/06 16:58:13 [32m/Users/jatin/Documents/mla2/backend/main.go:124 [33mSLOW SQL >= 200ms
+[0m[31;1m[527.153ms] [33m[rows:1][35m SELECT count(*) FROM "galleries"[0m
+
+2026/05/06 16:58:13 [32m/Users/jatin/Documents/mla2/backend/main.go:136 [33mSLOW SQL >= 200ms
+[0m[31;1m[525.484ms] [33m[rows:1][35m SELECT count(*) FROM "values"[0m
+
+2026/05/06 16:58:14 [32m/Users/jatin/Documents/mla2/backend/main.go:149 [33mSLOW SQL >= 200ms
+[0m[31;1m[521.416ms] [33m[rows:1][35m SELECT count(*) FROM "news"[0m
+
+2026/05/06 16:58:14 [32m/Users/jatin/Documents/mla2/backend/main.go:161 [33mSLOW SQL >= 200ms
+[0m[31;1m[522.587ms] [33m[rows:1][35m SELECT count(*) FROM "stats"[0m
+
+2026/05/06 16:58:16 [32m/Users/jatin/Documents/mla2/backend/main.go:175 [33mSLOW SQL >= 200ms
+[0m[31;1m[1050.157ms] [33m[rows:1][35m SELECT count(*) FROM "schemes"[0m
+
+2026/05/06 16:58:18 [32m/Users/jatin/Documents/mla2/backend/main.go:188 [33mSLOW SQL >= 200ms
+[0m[31;1m[2096.257ms] [33m[rows:1][35m SELECT * FROM "heros" ORDER BY "heros"."id" LIMIT 1[0m
+
+ ┌───────────────────────────────────────────────────┐ 
+ │                  Fiber v2.52.13                   │ 
+ │               http://127.0.0.1:5001               │ 
+ │       (bound on host 0.0.0.0 and port 5001)       │ 
+ │                                                   │ 
+ │ Handlers ............ 46  Processes ........... 1 │ 
+ │ Prefork ....... Disabled  PID ............. 68001 │ 
+ └───────────────────────────────────────────────────┘ 
+
+
+2026/05/06 16:58:37 [32m/Users/jatin/Documents/mla2/backend/main.go:241 [33mSLOW SQL >= 200ms
+[0m[31;1m[507.262ms] [33m[rows:1][35m SELECT * FROM "heros" ORDER BY "heros"."id" LIMIT 1[0m
+16:58:36 | 200 |  508.062833ms | 127.0.0.1 | GET | /api/hero | -
+
+2026/05/06 16:58:38 [32m/Users/jatin/Documents/mla2/backend/main.go:279 [33mSLOW SQL >= 200ms
+[0m[31;1m[508.714ms] [33m[rows:1][35m SELECT * FROM "abouts" ORDER BY "abouts"."id" LIMIT 1[0m
+16:58:37 | 200 |   509.04975ms | 127.0.0.1 | GET | /api/about | -
+
+2026/05/06 16:58:38 [32m/Users/jatin/Documents/mla2/backend/main.go:292 [33mSLOW SQL >= 200ms
+[0m[31;1m[253.597ms] [33m[rows:1][35m SELECT * FROM "about_pages" ORDER BY "about_pages"."id" LIMIT 1[0m
+16:58:37 | 200 |  253.894208ms | 127.0.0.1 | GET | /api/about-page | -
+
+2026/05/06 16:58:38 [32m/Users/jatin/Documents/mla2/backend/main.go:305 [33mSLOW SQL >= 200ms
+[0m[31;1m[507.080ms] [33m[rows:10][35m SELECT * FROM "milestones" ORDER BY year asc[0m
+16:58:38 | 200 |  507.369166ms | 127.0.0.1 | GET | /api/milestones | -
+
+2026/05/06 16:58:39 [32m/Users/jatin/Documents/mla2/backend/handlers/handlers.go:52 [33mSLOW SQL >= 200ms
+[0m[31;1m[2065.181ms] [33m[rows:5][35m SELECT * FROM "stats"[0m
+16:58:36 | 200 |  2.065445583s | 127.0.0.1 | GET | /api/stats | -
+
+2026/05/06 16:58:39 [32m/Users/jatin/Documents/mla2/backend/handlers/handlers.go:52 [33mSLOW SQL >= 200ms
+[0m[31;1m[2077.920ms] [33m[rows:4][35m SELECT * FROM "galleries"[0m
+16:58:36 | 200 |  2.078160708s | 127.0.0.1 | GET | /api/gallery | -
+
+2026/05/06 16:58:39 [32m/Users/jatin/Documents/mla2/backend/handlers/handlers.go:52 [33mSLOW SQL >= 200ms
+[0m[31;1m[2197.151ms] [33m[rows:4][35m SELECT * FROM "schemes"[0m
+16:58:36 | 200 |  2.197464917s | 127.0.0.1 | GET | /api/schemes | -
+
+2026/05/06 16:58:39 [32m/Users/jatin/Documents/mla2/backend/main.go:211 [33mSLOW SQL >= 200ms
+[0m[31;1m[2201.851ms] [33m[rows:3][35m SELECT * FROM "news" ORDER BY created_at desc[0m
+16:58:36 | 200 |  2.202066917s | 127.0.0.1 | GET | /api/news | -
+
+2026/05/06 16:58:39 [32m/Users/jatin/Documents/mla2/backend/main.go:264 [33mSLOW SQL >= 200ms
+[0m[31;1m[2201.467ms] [33m[rows:1][35m SELECT * FROM "settings" ORDER BY "settings"."id" LIMIT 1[0m
+16:58:36 | 200 |  2.201730667s | 127.0.0.1 | GET | /api/settings | -
+
+2026/05/06 16:58:39 [32m/Users/jatin/Documents/mla2/backend/main.go:330 [33mSLOW SQL >= 200ms
+[0m[31;1m[509.697ms] [33m[rows:4][35m SELECT * FROM "values"[0m
+16:58:38 | 200 |  509.958708ms | 127.0.0.1 | GET | /api/values | -
